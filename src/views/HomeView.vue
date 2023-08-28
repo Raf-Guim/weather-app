@@ -15,20 +15,32 @@
         </template>
       </ul>
     </div>
+    <div class="flex flex-col gap-4">
+      <Suspense>
+        <CityList />
+        <template #fallback>
+          <p>Loading...</p>
+        </template>
+      </Suspense>
+    </div>
   </main>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { Suspense, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
+import CityList from '../components/CityList.vue';
 
 const router = useRouter();
+const route = useRoute();
 const mapboxAPIKey = import.meta.env.VITE_mapboxAPIKey;
 const searchQuery = ref('');
 const queryTimeout = ref(null);
 const mapboxSearchResults = ref(null);
 const searchError = ref(null);
+
+console.log('route -> ' + route.params.city)
 
 const getSearchResults = () => {
   clearTimeout(queryTimeout.value)
