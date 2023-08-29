@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CityView from '../views/CityView.vue'
 
-require('dotenv').config();
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
