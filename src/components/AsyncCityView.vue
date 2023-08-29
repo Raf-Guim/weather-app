@@ -109,11 +109,11 @@
 <script setup>
 import { useRoute, useRouter } from "vue-router";
 import axios from "axios";
-import process from "process";
+// import process from "process";
 
 const route = useRoute();
 const router = useRouter();
-const openWeatherAPIKey = process.env.VUE_APP_openWeatherAPIKey;
+const openWeatherAPIKey = Netlify.env.get(VUE_APP_openWeatherAPIKey);
 
 const getWeatherData = async () => {
   try {
