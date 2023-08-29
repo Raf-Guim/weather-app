@@ -32,12 +32,10 @@ import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
 import CityList from '../components/CityList.vue';
 import CityCardSkeleton from '../components/CityCardSkeleton.vue';
-// import process from 'process';
 
 const router = useRouter();
 const route = useRoute();
-
-const mapboxAPIKey = Netlify.env.get(VUE_APP_mapboxAPIKey);
+const mapboxAPIKey = import.meta.env.VITE_mapboxAPIKey;
 const searchQuery = ref('');
 const queryTimeout = ref(null);
 const mapboxSearchResults = ref(null);
